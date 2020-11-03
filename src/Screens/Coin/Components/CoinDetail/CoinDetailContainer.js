@@ -30,7 +30,6 @@ class CoinDetailContainer extends Component {
   render() {
     const { loading, data, error, selected } = this.state;
     const { handleButton } = this;
-    console.log(data);
     return (
       <CoinDetailPresenter
         loading={loading}

@@ -28,8 +28,8 @@ const CoinPresenter = ({ loading, data }) =>
     <Container>
       {data.map((item) => {
         return (
-          <Link to={`/coins/${item.id}`}>
-            <Item key={item.id}>
+          <Link to={`/coins/${item.id}`} key={item.id}>
+            <Item>
               <Rank>#{item.rank}</Rank> {item.name}
               {item.symbol}
             </Item>

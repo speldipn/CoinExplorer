@@ -134,16 +134,7 @@ const CoinDetailPresenter = ({
 
 CoinDetailPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      symbol: PropTypes.symbol,
-      description: PropTypes.string,
-      open_source: PropTypes.bool,
-      rank: PropTypes.number,
-      org_structure: PropTypes.string,
-    })
-  ),
+  data: PropTypes.object,
   error: PropTypes.string,
   selected: PropTypes.number,
 };

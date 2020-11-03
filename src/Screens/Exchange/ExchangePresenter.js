@@ -37,7 +37,7 @@ const ExchangePresenter = ({ loading, data }) =>
           <Item key={item.id}>
             <Title>{item.name}</Title>
             <Description>{item.description}</Description>
-            <a target="_blank" href={item.link}>
+            <a target="_blank" href={item.link} rel="noreferrer">
               {item.link}
             </a>
           </Item>

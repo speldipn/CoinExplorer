@@ -16,6 +16,7 @@ class CoinMarketContainer extends Component {
       const { id } = this.props;
       const result = await api.getCoinMarket(id);
       this.setState({ data: result.data });
+      console.log(111, result.data);
     } catch {
       this.setState({ error: "Can't find markets of coin" });
     } finally {

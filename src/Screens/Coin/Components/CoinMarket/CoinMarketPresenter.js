@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Loader from "../../../../Components/Loader";
 import styled from "styled-components";
@@ -20,8 +20,8 @@ const CoinMarketPresenter = ({ loading, data, error }) =>
     <Loader />
   ) : (
     <Container>
-      {data.map((item) => (
-        <Item>{item.exchange_name}</Item>
+      {data.map((item, idx) => (
+        <Item key={idx}>{item.exchange_name}</Item>
       ))}
     </Container>
   );
@@ -30,6 +30,7 @@ CoinMarketPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
+      exchange_id: PropTypes.string,
       exchange_name: PropTypes.string,
     })
   ),

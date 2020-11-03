@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Loader from "../../../../Components/Loader";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -16,6 +16,7 @@ const Item = styled.p`
 
 const ItemTitle = styled.p`
   font-weight: bold;
+  margin-bottom: 5px;
 `;
 
 const ItemContent = styled.span`
@@ -42,7 +43,8 @@ CoinExchangePresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      //
+      name: PropTypes.string,
+      fiats: PropTypes.array,
     })
   ),
   error: PropTypes.string,
