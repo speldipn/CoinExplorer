@@ -13,6 +13,9 @@ class CoinDetailContainer extends Component {
       selected: 0,
     };
   }
+  handleButton = (selected) => {
+    this.setState({ selected });
+  };
   async componentDidMount() {
     try {
       const { id } = this.state;
@@ -26,6 +29,7 @@ class CoinDetailContainer extends Component {
   }
   render() {
     const { loading, data, error, selected } = this.state;
+    const { handleButton } = this;
     console.log(data);
     return (
       <CoinDetailPresenter
@@ -33,6 +37,7 @@ class CoinDetailContainer extends Component {
         data={data}
         error={error}
         selected={selected}
+        handleButton={handleButton}
       />
     );
   }

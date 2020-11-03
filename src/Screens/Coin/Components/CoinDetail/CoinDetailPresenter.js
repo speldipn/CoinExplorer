@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "../../../../Components/Loader";
+import CoinMarket from "../CoinMarket";
+import CoinExchange from "../CoinExchange";
 
 const Container = styled.div``;
 
@@ -61,7 +63,8 @@ const MarketButton = styled.button`
   padding: 10px;
   border: 5px solid #22d8af;
   outline: 0;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #22d8af;
     color: white;
   }
@@ -76,7 +79,8 @@ const ExchangeButton = styled.button`
   padding: 10px;
   border: 5px solid #22d8af;
   outline: 0;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #22d8af;
     color: white;
   }
@@ -84,7 +88,13 @@ const ExchangeButton = styled.button`
   cursor: pointer;
 `;
 
-const CoinDetailPresenter = ({ loading, error, data, selected }) =>
+const CoinDetailPresenter = ({
+  loading,
+  error,
+  data,
+  selected,
+  handleButton,
+}) =>
   loading ? (
     <Loader />
   ) : (
@@ -112,9 +122,13 @@ const CoinDetailPresenter = ({ loading, error, data, selected }) =>
         </Structure>
       </DetailContainer>
       <ButtonContainer>
-        <MarketButton>MARKET</MarketButton>
-        <ExchangeButton>EXCHANGE</ExchangeButton>
+        <MarketButton onClick={() => handleButton(1)}>MARKET</MarketButton>
+        <ExchangeButton onClick={() => handleButton(2)}>
+          EXCHANGE
+        </ExchangeButton>
       </ButtonContainer>
+      {selected === 1 && <CoinMarket id={data.id} />}
+      {selected === 2 && <CoinExchange id={data.id} />}
     </Container>
   );
 
