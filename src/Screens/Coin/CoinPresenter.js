@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "../../Components/Loader";
@@ -8,7 +9,12 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  &:hover {
+    color: red;
+    background-color: yellow;
+  }
 `;
 
 const Rank = styled.span`
@@ -22,10 +28,12 @@ const CoinPresenter = ({ loading, data }) =>
     <Container>
       {data.map((item) => {
         return (
-          <Item key={item.id}>
-            <Rank>#{item.rank}</Rank> {item.name}
-            {item.symbol}
-          </Item>
+          <Link to={`/coins/${item.id}`}>
+            <Item key={item.id}>
+              <Rank>#{item.rank}</Rank> {item.name}
+              {item.symbol}
+            </Item>
+          </Link>
         );
       })}
     </Container>
