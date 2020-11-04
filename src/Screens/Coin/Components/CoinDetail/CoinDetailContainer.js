@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import api from "../../../../api.js";
+import { getCoinDetail } from "../../../../api";
 import CoinDetailPresenter from "./CoinDetailPresenter";
 
 class CoinDetailContainer extends Component {
@@ -19,7 +19,7 @@ class CoinDetailContainer extends Component {
   async componentDidMount() {
     try {
       const { id } = this.state;
-      const result = await api.getCoinDetail(id);
+      const result = await getCoinDetail(id);
       this.setState({ data: result.data });
     } catch {
       this.setState({ error: "Can't find coin detail" });

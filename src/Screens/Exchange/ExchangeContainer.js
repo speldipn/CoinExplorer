@@ -1,6 +1,6 @@
 import React from "react";
 import ExchangePresenter from "./ExchangePresenter";
-import api from "../../api";
+import { getExchanges } from "../../api";
 
 class ExchangeContainer extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class ExchangeContainer extends React.Component {
   }
   async componentDidMount() {
     try {
-      const result = await api.getExchanges();
+      const result = await getExchanges();
       if (result) {
         const data = result.data.map((item) => {
           let website = "";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CoinMarketPresenter from "./CoinMarketPresenter";
-import api from "../../../../api";
+import { getCoinMarket } from "../../../../api";
 
 class CoinMarketContainer extends Component {
   constructor(props) {
@@ -14,9 +14,8 @@ class CoinMarketContainer extends Component {
   async componentDidMount() {
     try {
       const { id } = this.props;
-      const result = await api.getCoinMarket(id);
+      const result = await getCoinMarket(id);
       this.setState({ data: result.data });
-      console.log(111, result.data);
     } catch {
       this.setState({ error: "Can't find markets of coin" });
     } finally {

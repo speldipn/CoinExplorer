@@ -1,6 +1,6 @@
 import React from "react";
 import PricePresenter from "./PricePresenter";
-import api from "../../api";
+import { getPrices } from "../../api";
 
 class PriceContainer extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class PriceContainer extends React.Component {
 
   async componentDidMount() {
     try {
-      const result = await api.getPrices();
+      const result = await getPrices();
       if (result) {
         const data = result.data.map((item) => {
           return {

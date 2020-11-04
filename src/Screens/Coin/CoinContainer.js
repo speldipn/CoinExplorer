@@ -1,6 +1,6 @@
 import React from "react";
 import CoinPresenter from "./CoinPresenter";
-import api from "../../api";
+import { getCoins } from "../../api";
 
 class CoinContainer extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class CoinContainer extends React.Component {
   }
   async componentDidMount() {
     try {
-      const result = await api.getCoins();
+      const result = await getCoins();
       result && this.setState({ data: result.data });
     } catch {
       this.setState({ error: "Can't find coin information" });

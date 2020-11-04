@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CoinExchangePresenter from "./CoinExchangePresenter";
-import api from "../../../../api";
+import { getCoinExchange } from "../../../../api";
 
 class CoinExchangeContainer extends Component {
   constructor(props) {
@@ -15,9 +15,8 @@ class CoinExchangeContainer extends Component {
   async componentDidMount() {
     try {
       const { id } = this.props;
-      const result = await api.getCoinExchange(id);
+      const result = await getCoinExchange(id);
       this.setState({ data: result.data });
-      console.log("result", result.data);
     } catch {
       this.setState({ error: "Can't find exchanges of coin" });
     } finally {
