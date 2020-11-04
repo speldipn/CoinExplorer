@@ -6,7 +6,7 @@ import Exchange from "../Screens/Exchange";
 import Coin from "../Screens/Coin";
 import CoinDetail from "../Screens/Coin/Components/CoinDetail";
 
-export default () => {
+const AppRouter = () => {
   return (
     <Router>
       <Header />
@@ -17,3 +17,5 @@ export default () => {
     </Router>
   );
 };
+
+export default AppRouter;
